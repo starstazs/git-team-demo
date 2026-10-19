@@ -43,13 +43,15 @@ def cmd_add(text: str) -> None:
     print(f"已添加：{text}")
 
 
-def cmd_list(show_all: bool = True) -> None:
+def cmd_list(show_all: bool = False) -> None:
     """列出待办事项。show_all 为 False 时只显示未完成项。"""
     items = load_items()
     if not items:
         print("暂无待办事项，用 add 添加一条吧。")
         return
     for index, item in enumerate(items, start=1):
+        if not show_all and item["done"]:
+            continue
         mark = "x" if item["done"] else " "
         print(f"{index:>2}. [{mark}] {item['text']}")
 
