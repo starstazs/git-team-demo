@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# 运行时产生的本地数据（不入库）
+data.json
+
+# 虚拟环境
+.venv/
+venv/
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
