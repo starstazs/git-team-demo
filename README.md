@@ -1,5 +1,9 @@
 # git-team-demo
 
+> **升级提示（v0.2.0）**：本次修改后，`list` 默认只显示未完成项。
+> 如果你习惯用它查看全部待办，请改用 `list --all`。
+> 历史数据仍完整保存在 `data.json` 中，没有被删除。
+
 一个极简的命令行待办清单（Todo CLI），用于练习 Git / GitHub 团队协作流程：
 分支、Pull Request、代码评审与合并。
 
@@ -29,6 +33,8 @@ source .venv/bin/activate
 - `list --all` 列出全部待办（含已完成）
 - `done <序号>` 把某条标记为已完成
 - `remove <序号>` 删除某条
+> 序号取自 `list` 输出的第一列。隐藏已完成项后序号不重排，
+> 因此 `done <序号>`、`remove <序号>` 始终指向 `list --all` 视图中的位置。
 
 ## 快速开始
 
@@ -37,9 +43,8 @@ python app.py add "写实验报告"
 python app.py add "复习 Git 分支"
 
 python app.py done 1        # 把第 1 条标记为已完成
-python app.py list          # 只列出未完成项
-python app.py list --all    # 连已完成的也列出来
-
+python app.py list          # 只列出未完成项，所以刚 done 的第 1 条不会出现在这里
+python app.py list --all    # 想看全部（含已完成）就用这个
 python app.py remove 2      # 删除第 2 条
 ```
 
